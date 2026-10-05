@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acessibilidade – Diagramas de Blocos Táteis</title>
+  <meta name="description" content="Recursos de acessibilidade, atalhos de teclado e orientações de uso do site.">
+  <script>
+    /* Remove "no-js" e aplica preferências de acessibilidade salvas, antes de a página ser desenhada */
+    document.documentElement.classList.remove("no-js");
+    try {
+      var p = JSON.parse(localStorage.getItem("acc-prefs") || "{}");
+      if (typeof p.fonte === "number") document.documentElement.style.fontSize = p.fonte + "%";
+      if (p.contraste) document.documentElement.classList.add("alto-contraste");
+      if (p.espacamento) document.documentElement.classList.add("espacamento-ampliado");
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Atalhos para pular blocos (aparecem ao pressionar TAB). Equivalem a Alt+1, Alt+2, Alt+3 e Alt+4 -->
+  <nav class="skip-links" aria-label="Atalhos de navegação">
+    <a href="#conteudo">Ir para o conteúdo (Alt+1)</a>
+    <a href="#menu-principal">Ir para o menu (Alt+2)</a>
+    <a href="#barra-acessibilidade">Ir para as ferramentas de acessibilidade (Alt+3)</a>
+    <a href="#rodape">Ir para o rodapé (Alt+4)</a>
+  </nav>
+
+  <!-- Barra de acessibilidade: todos os controles são <button> nativos (funcionam com TAB, ENTER e ESPAÇO) -->
+  <div class="barra-acessibilidade" id="barra-acessibilidade" tabindex="-1">
+    <div class="container">
+      <div class="acc-grupo" role="group" aria-label="Ferramentas de acessibilidade">
+        <button type="button" class="acc-btn" data-acao="fonte-menos" aria-label="Diminuir o tamanho do texto">A−</button>
+        <button type="button" class="acc-btn" data-acao="fonte-padrao" aria-label="Tamanho padrão do texto">A</button>
+        <button type="button" class="acc-btn" data-acao="fonte-mais" aria-label="Aumentar o tamanho do texto">A+</button>
+        <button type="button" class="acc-btn" data-acao="contraste" aria-pressed="false">Alto contraste</button>
+        <button type="button" class="acc-btn" data-acao="espacamento" aria-pressed="false">Espaçamento do texto</button>
+        <button type="button" class="acc-btn" data-acao="ouvir" hidden>Ouvir a página</button>
+        <button type="button" class="acc-btn" data-acao="vlibras">Libras (VLibras)</button>
+        <button type="button" class="acc-btn" data-acao="restaurar">Restaurar padrão</button>
+        <a class="acc-link" href="acessibilidade.html">Ajuda e atalhos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Região de avisos para leitores de tela (ex.: "Alto contraste ativado") -->
+  <div id="anuncios" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Diagramas de Blocos Táteis</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+      <nav id="menu-principal" class="site-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Principal</a></li>
+          <li><a href="introducao.html">Introdução à lógica</a></li>
+          <li><a href="blocos.html">Manual dos blocos</a></li>
+          <li><a href="exercicios.html">Exercícios</a></li>
+          <li><a href="downloads.html">Modelos 3D</a></li>
+          <li><a href="acessibilidade.html" aria-current="page">Acessibilidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <div class="container">
+
+      <h1>Acessibilidade neste site</h1>
+
+      <p class="intro">Este site foi planejado para ser utilizado por pessoas com diferentes necessidades. Aqui você encontra os recursos disponíveis e como usá-los.</p>
+
+      <nav aria-label="Nesta página" class="destaque">
+        <p><strong>Nesta página:</strong></p>
+        <ul>
+          <li><a href="#recursos">Recursos disponíveis</a></li>
+          <li><a href="#teclado">Navegação pelo teclado</a></li>
+          <li><a href="#atalhos">Atalhos</a></li>
+          <li><a href="#libras">Libras (VLibras)</a></li>
+          <li><a href="#leitores">Leitores de tela</a></li>
+          <li><a href="#padroes">Referências e padrões</a></li>
+        </ul>
+      </nav>
+
+      <section aria-labelledby="recursos">
+        <h2 id="recursos">Recursos disponíveis</h2>
+        <p>Na barra no topo de todas as páginas há os seguintes botões:</p>
+        <ul>
+          <li><strong>A−, A e A+:</strong> diminuem, restauram ou aumentam o tamanho do texto (de 100% até 200%).</li>
+          <li><strong>Alto contraste:</strong> muda as cores para fundo preto com texto claro.</li>
+          <li><strong>Espaçamento do texto:</strong> aumenta o espaço entre linhas, palavras e letras.</li>
+          <li><strong>Ouvir a página:</strong> lê o conteúdo em voz alta usando a voz do seu navegador. Aparece apenas quando o navegador oferece esse recurso.</li>
+          <li><strong>Libras (VLibras):</strong> abre o tradutor para a Língua Brasileira de Sinais.</li>
+          <li><strong>Restaurar padrão:</strong> desfaz todas as mudanças acima.</li>
+        </ul>
+        <p>Suas escolhas ficam guardadas neste navegador e são aplicadas nas outras páginas do site.</p>
+      </section>
+
+      <section aria-labelledby="teclado">
+        <h2 id="teclado">Navegação pelo teclado</h2>
+        <p>Todo o site pode ser usado sem mouse.</p>
+        <div class="tabela-wrapper">
+          <table>
+            <caption>Teclas de navegação</caption>
+            <thead><tr><th scope="col">Tecla</th><th scope="col">O que faz</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">TAB</th><td>Avança para o próximo link ou botão.</td></tr>
+              <tr><th scope="row">SHIFT + TAB</th><td>Volta para o link ou botão anterior.</td></tr>
+              <tr><th scope="row">ENTER</th><td>Ativa o link ou botão selecionado.</td></tr>
+              <tr><th scope="row">ESPAÇO</th><td>Ativa o botão selecionado.</td></tr>
+              <tr><th scope="row">ESC</th><td>Fecha o menu (em telas pequenas) ou interrompe a leitura em voz alta.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>O item selecionado sempre aparece com um contorno laranja bem visível.</p>
+      </section>
+
+      <section aria-labelledby="atalhos">
+        <h2 id="atalhos">Atalhos</h2>
+        <p>Use a tecla ALT junto com um número. Esses atalhos também aparecem como links quando você pressiona TAB ao abrir uma página.</p>
+        <div class="tabela-wrapper">
+          <table>
+            <caption>Atalhos de teclado</caption>
+            <thead><tr><th scope="col">Atalho</th><th scope="col">Destino</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">ALT + 1</th><td>Conteúdo principal</td></tr>
+              <tr><th scope="row">ALT + 2</th><td>Menu de navegação</td></tr>
+              <tr><th scope="row">ALT + 3</th><td>Ferramentas de acessibilidade</td></tr>
+              <tr><th scope="row">ALT + 4</th><td>Rodapé</td></tr>
+              <tr><th scope="row">ALT + 0</th><td>Esta página de acessibilidade</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="libras">
+        <h2 id="libras">Libras (VLibras)</h2>
+        <p>O VLibras é uma ferramenta gratuita do Governo Federal que traduz textos para a Língua Brasileira de Sinais. Para usar, ative o botão "Libras (VLibras)" na barra de acessibilidade ou o ícone que fica na lateral da tela, e depois selecione o texto que deseja traduzir. É necessária conexão com a internet.</p>
+      </section>
+
+      <section aria-labelledby="leitores">
+        <h2 id="leitores">Leitores de tela</h2>
+        <p>As páginas usam títulos em ordem, regiões bem definidas (cabeçalho, menu, conteúdo e rodapé), tabelas com cabeçalhos, botões com estado anunciado (por exemplo, "Alto contraste, pressionado") e avisos falados quando uma configuração muda. Podem ser usados leitores como NVDA, JAWS, VoiceOver e TalkBack.</p>
+        <p>As imagens ainda não possuem descrição e serão atualizadas.</p>
+      </section>
+
+      <section aria-labelledby="padroes">
+        <h2 id="padroes">Referências e padrões</h2>
+        <p>A proposta está alinhada aos princípios de acessibilidade digital estabelecidos pela ABNT NBR 17225:2025. Além do ambiente digital, o projeto oferece peças táteis impressas em 3D, para que os algoritmos também possam ser explorados pelo tato.</p>
+      </section>
+
+      <section aria-labelledby="contato">
+        <h2 id="contato">Encontrou uma barreira de acesso?</h2>
+        <!-- Substituir pelo e-mail ou formulário oficial do projeto -->
+        <p>Se você encontrou dificuldade para usar alguma parte do site, entre em contato com a equipe do projeto: <a href="mailto:contato@exemplo.com">contato@exemplo.com</a>.</p>
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer" id="rodape" tabindex="-1">
+    <div class="container">
+      <p>Projeto de Extensão – Análise e Desenvolvimento de Sistemas – IFSP Campus Campos do Jordão.</p>
+      <p>&copy; <span id="ano-atual">2026</span>. Conteúdo educacional.</p>
+    </div>
+  </footer>
+
+  <!-- VLibras (tradutor para Libras do Governo Federal). Requer conexão com a internet. -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    try { new window.VLibras.Widget("https://vlibras.gov.br/app"); } catch (e) { /* sem internet: o site continua funcionando */ }
+  </script>
+
+</body>
+</html>

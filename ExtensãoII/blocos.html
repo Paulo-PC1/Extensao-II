@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual dos Blocos – Diagramas de Blocos Táteis</title>
+  <meta name="description" content="Manual dos blocos utilizados nas peças 3D dos diagramas de blocos.">
+  <script>
+    /* Remove "no-js" e aplica preferências de acessibilidade salvas, antes de a página ser desenhada */
+    document.documentElement.classList.remove("no-js");
+    try {
+      var p = JSON.parse(localStorage.getItem("acc-prefs") || "{}");
+      if (typeof p.fonte === "number") document.documentElement.style.fontSize = p.fonte + "%";
+      if (p.contraste) document.documentElement.classList.add("alto-contraste");
+      if (p.espacamento) document.documentElement.classList.add("espacamento-ampliado");
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Atalhos para pular blocos (aparecem ao pressionar TAB). Equivalem a Alt+1, Alt+2, Alt+3 e Alt+4 -->
+  <nav class="skip-links" aria-label="Atalhos de navegação">
+    <a href="#conteudo">Ir para o conteúdo (Alt+1)</a>
+    <a href="#menu-principal">Ir para o menu (Alt+2)</a>
+    <a href="#barra-acessibilidade">Ir para as ferramentas de acessibilidade (Alt+3)</a>
+    <a href="#rodape">Ir para o rodapé (Alt+4)</a>
+  </nav>
+
+  <!-- Barra de acessibilidade: todos os controles são <button> nativos (funcionam com TAB, ENTER e ESPAÇO) -->
+  <div class="barra-acessibilidade" id="barra-acessibilidade" tabindex="-1">
+    <div class="container">
+      <div class="acc-grupo" role="group" aria-label="Ferramentas de acessibilidade">
+        <button type="button" class="acc-btn" data-acao="fonte-menos" aria-label="Diminuir o tamanho do texto">A−</button>
+        <button type="button" class="acc-btn" data-acao="fonte-padrao" aria-label="Tamanho padrão do texto">A</button>
+        <button type="button" class="acc-btn" data-acao="fonte-mais" aria-label="Aumentar o tamanho do texto">A+</button>
+        <button type="button" class="acc-btn" data-acao="contraste" aria-pressed="false">Alto contraste</button>
+        <button type="button" class="acc-btn" data-acao="espacamento" aria-pressed="false">Espaçamento do texto</button>
+        <button type="button" class="acc-btn" data-acao="ouvir" hidden>Ouvir a página</button>
+        <button type="button" class="acc-btn" data-acao="vlibras">Libras (VLibras)</button>
+        <button type="button" class="acc-btn" data-acao="restaurar">Restaurar padrão</button>
+        <a class="acc-link" href="acessibilidade.html">Ajuda e atalhos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Região de avisos para leitores de tela (ex.: "Alto contraste ativado") -->
+  <div id="anuncios" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Diagramas de Blocos Táteis</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+      <nav id="menu-principal" class="site-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Principal</a></li>
+          <li><a href="introducao.html">Introdução à lógica</a></li>
+          <li><a href="blocos.html" aria-current="page">Manual dos blocos</a></li>
+          <li><a href="exercicios.html">Exercícios</a></li>
+          <li><a href="downloads.html">Modelos 3D</a></li>
+          <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <div class="container">
+
+      <h1>Manual dos Blocos Utilizados nos Diagramas</h1>
+
+      <p class="intro">Este manual apresenta os blocos utilizados nas peças impressas em 3D que serão empregadas durante as atividades de lógica de programação. Cada bloco representa uma etapa específica do algoritmo e pode ser combinado com outros blocos para construir soluções para diferentes problemas.</p>
+      <p>Os blocos apresentados neste projeto foram selecionados para atender aos exercícios de estrutura sequencial, estrutura de decisão e estrutura de repetição.</p>
+
+      <div class="grade-blocos">
+
+        <article class="cartao" aria-labelledby="bloco-inicio">
+          <h2 id="bloco-inicio">Bloco de Início/Fim</h2>
+          <p><strong>Formato do diagrama:</strong> Terminal (oval ou arredondado)</p>
+          <p><strong>Função:</strong> indicar o ponto de início ou término de um algoritmo. Todo algoritmo deve possuir um bloco de início e um bloco de fim para delimitar sua execução.</p>
+          <figure><img alt="IMAGEM"></figure>
+        </article>
+
+        <article class="cartao" aria-labelledby="bloco-entrada">
+          <h2 id="bloco-entrada">Bloco de Entrada de Dados</h2>
+          <p><strong>Formato do diagrama:</strong> Paralelogramo</p>
+          <p><strong>Função:</strong> receber informações fornecidas pelo usuário. É utilizado sempre que o algoritmo precisa ler valores para realizar algum processamento.</p>
+          <figure><img alt="IMAGEM"></figure>
+        </article>
+
+        <article class="cartao" aria-labelledby="bloco-processamento">
+          <h2 id="bloco-processamento">Bloco de Processamento</h2>
+          <p><strong>Formato do diagrama:</strong> Retângulo</p>
+          <p><strong>Função:</strong> executar cálculos, operações matemáticas ou atribuições de valores. É o bloco responsável por transformar os dados de entrada em resultados.</p>
+          <figure><img alt="IMAGEM"></figure>
+        </article>
+
+        <article class="cartao" aria-labelledby="bloco-saida">
+          <h2 id="bloco-saida">Bloco de Saída de Dados</h2>
+          <p><strong>Formato do diagrama:</strong> Paralelogramo</p>
+          <p><strong>Função:</strong> apresentar ao usuário os resultados produzidos pelo algoritmo. A saída pode exibir valores calculados, mensagens ou informações processadas.</p>
+          <figure><img alt="IMAGEM"></figure>
+        </article>
+
+        <article class="cartao" aria-labelledby="bloco-decisao">
+          <h2 id="bloco-decisao">Bloco de Decisão</h2>
+          <p><strong>Formato do diagrama:</strong> Losango</p>
+          <p><strong>Função:</strong> avaliar uma condição e determinar qual caminho o algoritmo deverá seguir. Possui normalmente duas saídas:</p>
+          <ul>
+            <li>Sim (Verdadeiro)</li>
+            <li>Não (Falso)</li>
+          </ul>
+          <figure><img alt="IMAGEM"></figure>
+        </article>
+
+        <article class="cartao" aria-labelledby="bloco-repeticao">
+          <h2 id="bloco-repeticao">Bloco de Repetição (While)</h2>
+          <p><strong>Formato do diagrama:</strong> estrutura composta por um bloco de decisão associado ao fluxo de retorno.</p>
+          <p><strong>Função:</strong> repetir um conjunto de instruções enquanto uma condição permanecer verdadeira. Esse bloco será utilizado para representar a estrutura de repetição "Enquanto" (While).</p>
+          <figure><img alt="IMAGEM"></figure>
+        </article>
+
+      </div>
+
+      <section aria-labelledby="resumo">
+        <h2 id="resumo">Resumo dos Blocos Utilizados</h2>
+        <div class="tabela-wrapper">
+          <table>
+            <caption>Resumo dos blocos, seus formatos e finalidades</caption>
+            <thead>
+              <tr>
+                <th scope="col">Bloco</th>
+                <th scope="col">Formato</th>
+                <th scope="col">Finalidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Início/Fim</th><td>Terminal</td><td>Delimita o início e o término do algoritmo</td></tr>
+              <tr><th scope="row">Entrada</th><td>Paralelogramo</td><td>Recebe dados do usuário</td></tr>
+              <tr><th scope="row">Processamento</th><td>Retângulo</td><td>Executa cálculos e operações</td></tr>
+              <tr><th scope="row">Saída</th><td>Paralelogramo</td><td>Apresenta resultados</td></tr>
+              <tr><th scope="row">Decisão</th><td>Losango</td><td>Avalia condições e escolhe caminhos</td></tr>
+              <tr><th scope="row">Repetição (While)</th><td>Estrutura com decisão e retorno</td><td>Executa instruções repetidamente enquanto a condição for verdadeira</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="relacao-pecas">
+        <h2 id="relacao-pecas">Relação com as Peças Impressas em 3D</h2>
+        <p>Cada peça impressa em 3D representa um dos símbolos utilizados em diagramas de blocos. Durante a atividade, os participantes poderão montar fisicamente os algoritmos propostos, visualizando e manipulando cada etapa da solução.</p>
+        <p>Essa abordagem busca facilitar a compreensão dos conceitos de lógica de programação por meio de uma experiência prática, interativa e acessível.</p>
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer" id="rodape" tabindex="-1">
+    <div class="container">
+      <p>Projeto de Extensão – Análise e Desenvolvimento de Sistemas – IFSP Campus Campos do Jordão.</p>
+      <p>&copy; <span id="ano-atual">2026</span>. Conteúdo educacional.</p>
+    </div>
+  </footer>
+
+  <!-- VLibras (tradutor para Libras do Governo Federal). Requer conexão com a internet. -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    try { new window.VLibras.Widget("https://vlibras.gov.br/app"); } catch (e) { /* sem internet: o site continua funcionando */ }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download dos Modelos 3D – Diagramas de Blocos Táteis</title>
+  <meta name="description" content="Arquivos dos modelos 3D e considerações finais do projeto.">
+  <script>
+    /* Remove "no-js" e aplica preferências de acessibilidade salvas, antes de a página ser desenhada */
+    document.documentElement.classList.remove("no-js");
+    try {
+      var p = JSON.parse(localStorage.getItem("acc-prefs") || "{}");
+      if (typeof p.fonte === "number") document.documentElement.style.fontSize = p.fonte + "%";
+      if (p.contraste) document.documentElement.classList.add("alto-contraste");
+      if (p.espacamento) document.documentElement.classList.add("espacamento-ampliado");
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Atalhos para pular blocos (aparecem ao pressionar TAB). Equivalem a Alt+1, Alt+2, Alt+3 e Alt+4 -->
+  <nav class="skip-links" aria-label="Atalhos de navegação">
+    <a href="#conteudo">Ir para o conteúdo (Alt+1)</a>
+    <a href="#menu-principal">Ir para o menu (Alt+2)</a>
+    <a href="#barra-acessibilidade">Ir para as ferramentas de acessibilidade (Alt+3)</a>
+    <a href="#rodape">Ir para o rodapé (Alt+4)</a>
+  </nav>
+
+  <!-- Barra de acessibilidade: todos os controles são <button> nativos (funcionam com TAB, ENTER e ESPAÇO) -->
+  <div class="barra-acessibilidade" id="barra-acessibilidade" tabindex="-1">
+    <div class="container">
+      <div class="acc-grupo" role="group" aria-label="Ferramentas de acessibilidade">
+        <button type="button" class="acc-btn" data-acao="fonte-menos" aria-label="Diminuir o tamanho do texto">A−</button>
+        <button type="button" class="acc-btn" data-acao="fonte-padrao" aria-label="Tamanho padrão do texto">A</button>
+        <button type="button" class="acc-btn" data-acao="fonte-mais" aria-label="Aumentar o tamanho do texto">A+</button>
+        <button type="button" class="acc-btn" data-acao="contraste" aria-pressed="false">Alto contraste</button>
+        <button type="button" class="acc-btn" data-acao="espacamento" aria-pressed="false">Espaçamento do texto</button>
+        <button type="button" class="acc-btn" data-acao="ouvir" hidden>Ouvir a página</button>
+        <button type="button" class="acc-btn" data-acao="vlibras">Libras (VLibras)</button>
+        <button type="button" class="acc-btn" data-acao="restaurar">Restaurar padrão</button>
+        <a class="acc-link" href="acessibilidade.html">Ajuda e atalhos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Região de avisos para leitores de tela (ex.: "Alto contraste ativado") -->
+  <div id="anuncios" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Diagramas de Blocos Táteis</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+      <nav id="menu-principal" class="site-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Principal</a></li>
+          <li><a href="introducao.html">Introdução à lógica</a></li>
+          <li><a href="blocos.html">Manual dos blocos</a></li>
+          <li><a href="exercicios.html">Exercícios</a></li>
+          <li><a href="downloads.html" aria-current="page">Modelos 3D</a></li>
+          <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <div class="container">
+
+      <h1>Download dos Modelos 3D</h1>
+
+      <p class="intro">Nesta seção estão disponíveis os arquivos dos modelos tridimensionais utilizados neste projeto. As peças foram desenvolvidas para representar os principais símbolos dos diagramas de blocos empregados no ensino de lógica de programação.</p>
+      <p>O objetivo é permitir que escolas, instituições, professores, estudantes e demais interessados possam reproduzir as peças utilizando impressoras 3D e aplicar a mesma metodologia de ensino apresentada neste projeto.</p>
+      <p>Os modelos foram projetados para auxiliar na compreensão dos conceitos fundamentais da lógica de programação por meio da manipulação física dos blocos que compõem um algoritmo.</p>
+
+      <section aria-labelledby="arquivos">
+        <h2 id="arquivos">Arquivos disponíveis</h2>
+        <!-- Substituir os href="#" pelos caminhos reais dos arquivos (ex.: modelos/bloco-inicio.stl)
+             e ajustar o tamanho/formato no texto do link. -->
+        <ul>
+          <li><a class="botao" href="#" download>Baixar todos os modelos (arquivo .zip)</a></li>
+          <li><a href="#" download>Bloco Início/Fim (.stl)</a></li>
+          <li><a href="#" download>Bloco Entrada (.stl)</a></li>
+          <li><a href="#" download>Bloco Processamento (.stl)</a></li>
+          <li><a href="#" download>Bloco Saída (.stl)</a></li>
+          <li><a href="#" download>Bloco Decisão (.stl)</a></li>
+          <li><a href="#" download>Bloco Repetição (.stl)</a></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="licenca">
+        <h2 id="licenca">Licença de Uso</h2>
+        <p>Os modelos disponibilizados neste projeto possuem finalidade educacional e podem ser utilizados, reproduzidos e compartilhados para atividades de ensino, pesquisa e extensão, desde que seja mantida a referência ao projeto e ao Instituto Federal de Educação, Ciência e Tecnologia de São Paulo – Campus Campos do Jordão.</p>
+      </section>
+
+      <section aria-labelledby="consideracoes">
+        <h2 id="consideracoes">Considerações Finais</h2>
+        <h3 id="conclusao-final">Conclusão</h3>
+        <p>A lógica de programação é uma das bases fundamentais da Computação e está presente no desenvolvimento de softwares, aplicativos, sistemas web e diversas outras tecnologias utilizadas no cotidiano. Entretanto, o aprendizado desses conceitos pode representar um desafio para pessoas que estão tendo seu primeiro contato com a área.</p>
+        <p>Diante desse cenário, este projeto propôs uma abordagem prática e acessível para o ensino introdutório da lógica de programação, utilizando diagramas de blocos representados por peças táteis impressas em 3D. A combinação entre recursos físicos e conteúdos digitais busca facilitar a compreensão dos algoritmos e tornar o processo de aprendizagem mais interativo, inclusivo e significativo.</p>
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer" id="rodape" tabindex="-1">
+    <div class="container">
+      <p>Projeto de Extensão – Análise e Desenvolvimento de Sistemas – IFSP Campus Campos do Jordão.</p>
+      <p>&copy; <span id="ano-atual">2026</span>. Conteúdo educacional.</p>
+    </div>
+  </footer>
+
+  <!-- VLibras (tradutor para Libras do Governo Federal). Requer conexão com a internet. -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    try { new window.VLibras.Widget("https://vlibras.gov.br/app"); } catch (e) { /* sem internet: o site continua funcionando */ }
+  </script>
+
+</body>
+</html>

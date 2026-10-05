@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Introdução à Lógica de Programação – Diagramas de Blocos Táteis</title>
+  <meta name="description" content="Conceitos básicos de lógica de programação: algoritmo, entrada, processamento, saída e sequência lógica.">
+  <script>
+    /* Remove "no-js" e aplica preferências de acessibilidade salvas, antes de a página ser desenhada */
+    document.documentElement.classList.remove("no-js");
+    try {
+      var p = JSON.parse(localStorage.getItem("acc-prefs") || "{}");
+      if (typeof p.fonte === "number") document.documentElement.style.fontSize = p.fonte + "%";
+      if (p.contraste) document.documentElement.classList.add("alto-contraste");
+      if (p.espacamento) document.documentElement.classList.add("espacamento-ampliado");
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Atalhos para pular blocos (aparecem ao pressionar TAB). Equivalem a Alt+1, Alt+2, Alt+3 e Alt+4 -->
+  <nav class="skip-links" aria-label="Atalhos de navegação">
+    <a href="#conteudo">Ir para o conteúdo (Alt+1)</a>
+    <a href="#menu-principal">Ir para o menu (Alt+2)</a>
+    <a href="#barra-acessibilidade">Ir para as ferramentas de acessibilidade (Alt+3)</a>
+    <a href="#rodape">Ir para o rodapé (Alt+4)</a>
+  </nav>
+
+  <!-- Barra de acessibilidade: todos os controles são <button> nativos (funcionam com TAB, ENTER e ESPAÇO) -->
+  <div class="barra-acessibilidade" id="barra-acessibilidade" tabindex="-1">
+    <div class="container">
+      <div class="acc-grupo" role="group" aria-label="Ferramentas de acessibilidade">
+        <button type="button" class="acc-btn" data-acao="fonte-menos" aria-label="Diminuir o tamanho do texto">A−</button>
+        <button type="button" class="acc-btn" data-acao="fonte-padrao" aria-label="Tamanho padrão do texto">A</button>
+        <button type="button" class="acc-btn" data-acao="fonte-mais" aria-label="Aumentar o tamanho do texto">A+</button>
+        <button type="button" class="acc-btn" data-acao="contraste" aria-pressed="false">Alto contraste</button>
+        <button type="button" class="acc-btn" data-acao="espacamento" aria-pressed="false">Espaçamento do texto</button>
+        <button type="button" class="acc-btn" data-acao="ouvir" hidden>Ouvir a página</button>
+        <button type="button" class="acc-btn" data-acao="vlibras">Libras (VLibras)</button>
+        <button type="button" class="acc-btn" data-acao="restaurar">Restaurar padrão</button>
+        <a class="acc-link" href="acessibilidade.html">Ajuda e atalhos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Região de avisos para leitores de tela (ex.: "Alto contraste ativado") -->
+  <div id="anuncios" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Diagramas de Blocos Táteis</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+      <nav id="menu-principal" class="site-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Principal</a></li>
+          <li><a href="introducao.html" aria-current="page">Introdução à lógica</a></li>
+          <li><a href="blocos.html">Manual dos blocos</a></li>
+          <li><a href="exercicios.html">Exercícios</a></li>
+          <li><a href="downloads.html">Modelos 3D</a></li>
+          <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <div class="container">
+
+      <h1>Introdução à Lógica de Programação</h1>
+
+      <nav aria-label="Nesta página" class="destaque">
+        <p><strong>Nesta página:</strong></p>
+        <ul>
+          <li><a href="#logica">O que é lógica de programação?</a></li>
+          <li><a href="#algoritmo">O que é um algoritmo?</a></li>
+          <li><a href="#entrada">Entrada de dados</a></li>
+          <li><a href="#processamento">Processamento</a></li>
+          <li><a href="#saida">Saída de dados</a></li>
+          <li><a href="#sequencia">Sequência lógica</a></li>
+          <li><a href="#conclusao">Conclusão</a></li>
+        </ul>
+      </nav>
+
+      <section aria-labelledby="logica">
+        <h2 id="logica">O que é Lógica de Programação?</h2>
+        <p>A lógica de programação é a forma de organizar pensamentos e ações para resolver um problema de maneira ordenada e eficiente. Antes de desenvolver um programa de computador, é necessário planejar os passos que serão executados para alcançar um determinado resultado.</p>
+        <p>No dia a dia, utilizamos a lógica constantemente. Ao seguir uma receita culinária, montar um móvel ou realizar uma tarefa seguindo instruções, estamos executando uma sequência lógica de ações.</p>
+        <p>Na programação, essa mesma ideia é aplicada para que o computador execute tarefas de forma correta.</p>
+      </section>
+
+      <section aria-labelledby="algoritmo">
+        <h2 id="algoritmo">O que é um Algoritmo?</h2>
+        <p>Um algoritmo é uma sequência finita e organizada de passos utilizada para resolver um problema ou realizar uma tarefa.</p>
+        <p>Esses passos devem ser claros e seguir uma ordem lógica para que o resultado esperado seja alcançado.</p>
+        <div class="exemplo">
+          <p><strong>Exemplo:</strong> para preparar um café simples, podemos seguir o seguinte algoritmo:</p>
+          <ol>
+            <li>Separar os ingredientes.</li>
+            <li>Aquecer a água.</li>
+            <li>Colocar o pó de café no filtro.</li>
+            <li>Despejar a água quente.</li>
+            <li>Servir o café.</li>
+          </ol>
+        </div>
+        <p>Da mesma forma, os computadores executam algoritmos para resolver problemas e processar informações.</p>
+      </section>
+
+      <section aria-labelledby="entrada">
+        <h2 id="entrada">Entrada de Dados</h2>
+        <p>A entrada de dados corresponde às informações fornecidas ao algoritmo para que ele possa realizar determinada tarefa. Esses dados podem ser digitados pelo usuário, lidos de um arquivo ou obtidos por meio de sensores e dispositivos eletrônicos.</p>
+        <p><strong>Exemplos:</strong></p>
+        <ul>
+          <li>Digitar um número.</li>
+          <li>Informar um nome.</li>
+          <li>Inserir uma idade.</li>
+        </ul>
+        <p>Nos diagramas de blocos, a entrada de dados é representada por um bloco específico que indica a leitura das informações necessárias para a execução do algoritmo.</p>
+        <figure>
+          <img alt="IMAGEM">
+          <figcaption>Bloco de entrada de dados.</figcaption>
+        </figure>
+      </section>
+
+      <section aria-labelledby="processamento">
+        <h2 id="processamento">Processamento</h2>
+        <p>O processamento é a etapa em que o algoritmo realiza operações utilizando os dados recebidos. Nessa fase podem ser efetuados cálculos matemáticos, comparações, verificações de condições ou qualquer outra ação necessária para produzir um resultado.</p>
+        <p><strong>Exemplos:</strong></p>
+        <ul>
+          <li>Somar dois números.</li>
+          <li>Calcular uma média.</li>
+          <li>Verificar se uma pessoa é maior de idade.</li>
+        </ul>
+        <p>O processamento representa o trabalho realizado pelo algoritmo para transformar os dados de entrada em informações úteis.</p>
+        <figure>
+          <img alt="IMAGEM">
+          <figcaption>Bloco de processamento.</figcaption>
+        </figure>
+      </section>
+
+      <section aria-labelledby="saida">
+        <h2 id="saida">Saída de Dados</h2>
+        <p>A saída de dados corresponde ao resultado produzido após o processamento das informações. Esse resultado é apresentado ao usuário por meio da tela do computador, de um dispositivo eletrônico ou de qualquer outro meio de comunicação.</p>
+        <p><strong>Exemplos:</strong></p>
+        <ul>
+          <li>Exibir o resultado de uma soma.</li>
+          <li>Mostrar a média calculada.</li>
+          <li>Informar se uma pessoa é maior ou menor de idade.</li>
+        </ul>
+        <p>Nos diagramas de blocos, a saída é representada por um bloco responsável por apresentar as informações ao usuário.</p>
+        <figure>
+          <img alt="IMAGEM">
+          <figcaption>Bloco de saída de dados.</figcaption>
+        </figure>
+      </section>
+
+      <section aria-labelledby="sequencia">
+        <h2 id="sequencia">Sequência Lógica</h2>
+        <p>A sequência lógica é a ordem correta em que as instruções devem ser executadas. Cada passo depende do anterior para que o algoritmo funcione adequadamente. Quando a sequência é alterada ou executada de forma incorreta, o resultado pode não ser o esperado.</p>
+        <div class="exemplo">
+          <p><strong>Exemplo:</strong> ao calcular a soma de dois números:</p>
+          <ol>
+            <li>Ler o primeiro número.</li>
+            <li>Ler o segundo número.</li>
+            <li>Realizar a soma.</li>
+            <li>Exibir o resultado.</li>
+          </ol>
+        </div>
+        <p>Se tentarmos exibir o resultado antes de realizar a soma, o algoritmo não funcionará corretamente. Por esse motivo, a organização das etapas é um dos princípios fundamentais da lógica de programação.</p>
+      </section>
+
+      <section aria-labelledby="conclusao">
+        <h2 id="conclusao">Conclusão</h2>
+        <p>A lógica de programação é a base para o desenvolvimento de qualquer software. Por meio de algoritmos, é possível organizar instruções de forma clara e estruturada para resolver problemas. Os conceitos de entrada de dados, processamento, saída de dados e sequência lógica formam os elementos fundamentais para a construção de algoritmos e serão utilizados nos exercícios apresentados neste projeto.</p>
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer" id="rodape" tabindex="-1">
+    <div class="container">
+      <p>Projeto de Extensão – Análise e Desenvolvimento de Sistemas – IFSP Campus Campos do Jordão.</p>
+      <p>&copy; <span id="ano-atual">2026</span>. Conteúdo educacional.</p>
+    </div>
+  </footer>
+
+  <!-- VLibras (tradutor para Libras do Governo Federal). Requer conexão com a internet. -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    try { new window.VLibras.Widget("https://vlibras.gov.br/app"); } catch (e) { /* sem internet: o site continua funcionando */ }
+  </script>
+
+</body>
+</html>

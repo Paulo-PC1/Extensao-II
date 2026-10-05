@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercícios Práticos – Diagramas de Blocos Táteis</title>
+  <meta name="description" content="Exercícios práticos com diagramas de blocos táteis.">
+  <script>
+    /* Remove "no-js" e aplica preferências de acessibilidade salvas, antes de a página ser desenhada */
+    document.documentElement.classList.remove("no-js");
+    try {
+      var p = JSON.parse(localStorage.getItem("acc-prefs") || "{}");
+      if (typeof p.fonte === "number") document.documentElement.style.fontSize = p.fonte + "%";
+      if (p.contraste) document.documentElement.classList.add("alto-contraste");
+      if (p.espacamento) document.documentElement.classList.add("espacamento-ampliado");
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Atalhos para pular blocos (aparecem ao pressionar TAB). Equivalem a Alt+1, Alt+2, Alt+3 e Alt+4 -->
+  <nav class="skip-links" aria-label="Atalhos de navegação">
+    <a href="#conteudo">Ir para o conteúdo (Alt+1)</a>
+    <a href="#menu-principal">Ir para o menu (Alt+2)</a>
+    <a href="#barra-acessibilidade">Ir para as ferramentas de acessibilidade (Alt+3)</a>
+    <a href="#rodape">Ir para o rodapé (Alt+4)</a>
+  </nav>
+
+  <!-- Barra de acessibilidade: todos os controles são <button> nativos (funcionam com TAB, ENTER e ESPAÇO) -->
+  <div class="barra-acessibilidade" id="barra-acessibilidade" tabindex="-1">
+    <div class="container">
+      <div class="acc-grupo" role="group" aria-label="Ferramentas de acessibilidade">
+        <button type="button" class="acc-btn" data-acao="fonte-menos" aria-label="Diminuir o tamanho do texto">A−</button>
+        <button type="button" class="acc-btn" data-acao="fonte-padrao" aria-label="Tamanho padrão do texto">A</button>
+        <button type="button" class="acc-btn" data-acao="fonte-mais" aria-label="Aumentar o tamanho do texto">A+</button>
+        <button type="button" class="acc-btn" data-acao="contraste" aria-pressed="false">Alto contraste</button>
+        <button type="button" class="acc-btn" data-acao="espacamento" aria-pressed="false">Espaçamento do texto</button>
+        <button type="button" class="acc-btn" data-acao="ouvir" hidden>Ouvir a página</button>
+        <button type="button" class="acc-btn" data-acao="vlibras">Libras (VLibras)</button>
+        <button type="button" class="acc-btn" data-acao="restaurar">Restaurar padrão</button>
+        <a class="acc-link" href="acessibilidade.html">Ajuda e atalhos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Região de avisos para leitores de tela (ex.: "Alto contraste ativado") -->
+  <div id="anuncios" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Diagramas de Blocos Táteis</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+      <nav id="menu-principal" class="site-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Principal</a></li>
+          <li><a href="introducao.html">Introdução à lógica</a></li>
+          <li><a href="blocos.html">Manual dos blocos</a></li>
+          <li><a href="exercicios.html" aria-current="page">Exercícios</a></li>
+          <li><a href="downloads.html">Modelos 3D</a></li>
+          <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <div class="container">
+
+      <h1>Exercícios Práticos com Diagramas de Blocos Táteis</h1>
+
+      <p class="intro">A atividade será realizada por meio da apresentação dos conceitos introdutórios de lógica de programação e da montagem de algoritmos utilizando peças táteis impressas em 3D. Inicialmente, os participantes terão contato com os conceitos fundamentais apresentados neste site. Em seguida, serão orientados a identificar os blocos correspondentes a cada etapa dos algoritmos e realizar a montagem física das soluções propostas.</p>
+      <p>A abordagem busca estimular a aprendizagem ativa, permitindo que os participantes visualizem, manipulem e compreendam o fluxo de execução de um algoritmo de forma prática e acessível.</p>
+
+      <nav aria-label="Exercícios" class="destaque">
+        <p><strong>Ir para:</strong></p>
+        <ul>
+          <li><a href="#exercicio-1">Exercício 1 – Estrutura Sequencial</a></li>
+          <li><a href="#exercicio-2">Exercício 2 – Estrutura de Decisão Composta</a></li>
+          <li><a href="#exercicio-3">Exercício 3 – Estrutura de Repetição (While)</a></li>
+        </ul>
+      </nav>
+
+      <!-- ===================== EXERCÍCIO 1 ===================== -->
+      <section aria-labelledby="exercicio-1">
+        <h2 id="exercicio-1">Exercício 1 – Estrutura Sequencial</h2>
+        <p>Desenvolva um algoritmo para calcular o volume de uma lata de óleo cilíndrica. O usuário deverá informar o valor do raio da base e da altura da lata.</p>
+        <p>Utilize a fórmula: <strong>VOLUME = PI × R² × ALTURA</strong><br>Considere: PI = 3,14159</p>
+
+        <h3>Objetivo</h3>
+        <p>Compreender o funcionamento da estrutura sequencial, na qual as instruções são executadas em uma ordem predefinida, sem desvios ou repetições.</p>
+
+        <h3>Dados de Entrada</h3>
+        <ul>
+          <li>Raio da lata (R)</li>
+          <li>Altura da lata (H)</li>
+        </ul>
+
+        <h3>Processamento</h3>
+        <p>O algoritmo deverá:</p>
+        <ol>
+          <li>Definir o valor da constante PI.</li>
+          <li>Ler o valor do raio.</li>
+          <li>Ler o valor da altura.</li>
+          <li>Aplicar a fórmula do volume.</li>
+          <li>Armazenar o resultado obtido.</li>
+        </ol>
+
+        <h3>Saída</h3>
+        <p>Exibir o valor do volume calculado.</p>
+
+        <h3>Passo a Passo da Solução</h3>
+        <div class="tabela-wrapper">
+          <table>
+            <caption>Passo a passo do Exercício 1</caption>
+            <thead><tr><th scope="col">Passo</th><th scope="col">Ação</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Passo 1</th><td>Iniciar o algoritmo.</td></tr>
+              <tr><th scope="row">Passo 2</th><td>Definir a constante: PI = 3,14159</td></tr>
+              <tr><th scope="row">Passo 3</th><td>Ler o valor do raio. Exemplo: R = 5</td></tr>
+              <tr><th scope="row">Passo 4</th><td>Ler o valor da altura. Exemplo: H = 10</td></tr>
+              <tr><th scope="row">Passo 5</th><td>Calcular o volume:<br>VOLUME = 3,14159 × 5² × 10<br>VOLUME = 3,14159 × 25 × 10<br>VOLUME = 785,3975</td></tr>
+              <tr><th scope="row">Passo 6</th><td>Exibir o resultado.</td></tr>
+              <tr><th scope="row">Passo 7</th><td>Finalizar o algoritmo.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Montagem do Algoritmo com as Peças Táteis</h3>
+        <h4>Peças necessárias</h4>
+        <ul>
+          <li>1 Bloco Início</li>
+          <li>2 Blocos Entrada</li>
+          <li>1 Bloco Processamento</li>
+          <li>1 Bloco Saída</li>
+          <li>1 Bloco Fim</li>
+        </ul>
+        <h4>Sequência de montagem</h4>
+        <ol>
+          <li>Posicionar o bloco Início.</li>
+          <li>Conectar o bloco Entrada para leitura do raio.</li>
+          <li>Conectar o bloco Entrada para leitura da altura.</li>
+          <li>Conectar o bloco Processamento contendo a fórmula do volume.</li>
+          <li>Conectar o bloco Saída para apresentar o resultado.</li>
+          <li>Finalizar com o bloco Fim.</li>
+        </ol>
+
+        <h4>O que observar</h4>
+        <p>Neste exercício, todos os blocos são executados em sequência, demonstrando uma estrutura sequencial simples.</p>
+
+        <h4>Exemplo de Execução</h4>
+        <div class="exemplo">
+          <p>Raio = 5<br>Altura = 10</p>
+          <p><strong>Resultado:</strong> Volume = 785,3975</p>
+        </div>
+
+        <figure>
+          <img alt="IMAGEM">
+          <figcaption>Diagrama de blocos do Exercício 1.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ===================== EXERCÍCIO 2 ===================== -->
+      <section aria-labelledby="exercicio-2">
+        <h2 id="exercicio-2">Exercício 2 – Estrutura de Decisão Composta</h2>
+        <p>Desenvolva um algoritmo que leia um valor X.</p>
+        <ul>
+          <li>Se X for maior ou igual a 10: R = X + 5</li>
+          <li>Caso contrário: R = X - 7</li>
+        </ul>
+        <p>Ao final, exiba o valor de R.</p>
+
+        <h3>Objetivo</h3>
+        <p>Compreender como os algoritmos podem tomar decisões a partir da avaliação de condições.</p>
+
+        <h3>Dados de Entrada</h3>
+        <p>Valor de X.</p>
+
+        <h3>Processamento</h3>
+        <ol>
+          <li>Ler o valor de X.</li>
+          <li>Verificar se X é maior ou igual a 10.</li>
+          <li>Executar a operação correspondente.</li>
+          <li>Armazenar o resultado em R.</li>
+        </ol>
+
+        <h3>Saída</h3>
+        <p>Exibir o valor de R.</p>
+
+        <h3>Passo a Passo da Solução</h3>
+        <div class="tabela-wrapper">
+          <table>
+            <caption>Passo a passo do Exercício 2</caption>
+            <thead><tr><th scope="col">Passo</th><th scope="col">Ação</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Passo 1</th><td>Iniciar o algoritmo.</td></tr>
+              <tr><th scope="row">Passo 2</th><td>Ler o valor de X. Exemplo: X = 15</td></tr>
+              <tr><th scope="row">Passo 3</th><td>Verificar a condição: X ≥ 10 ?</td></tr>
+              <tr><th scope="row">Passo 4</th><td>Como a condição é verdadeira:<br>R = 15 + 5<br>R = 20</td></tr>
+              <tr><th scope="row">Passo 5</th><td>Exibir R.</td></tr>
+              <tr><th scope="row">Passo 6</th><td>Finalizar o algoritmo.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Montagem do Algoritmo com as Peças Táteis</h3>
+        <h4>Peças necessárias</h4>
+        <ul>
+          <li>1 Bloco Início</li>
+          <li>1 Bloco Entrada</li>
+          <li>1 Bloco Decisão</li>
+          <li>2 Blocos Processamento</li>
+          <li>1 Bloco Saída</li>
+          <li>1 Bloco Fim</li>
+        </ul>
+        <h4>Sequência de montagem</h4>
+        <ol>
+          <li>Posicionar o bloco Início.</li>
+          <li>Conectar o bloco Entrada para leitura de X.</li>
+          <li>Inserir o bloco Decisão contendo a condição X ≥ 10.</li>
+          <li>No caminho "Sim", conectar o bloco Processamento com a operação R = X + 5.</li>
+          <li>No caminho "Não", conectar o bloco Processamento com a operação R = X - 7.</li>
+          <li>Unir novamente os dois caminhos.</li>
+          <li>Conectar o bloco Saída.</li>
+          <li>Finalizar com o bloco Fim.</li>
+        </ol>
+
+        <h4>O que observar</h4>
+        <p>O bloco de decisão cria dois caminhos possíveis. Apenas um deles será executado de acordo com o valor informado pelo usuário.</p>
+
+        <h4>Exemplo de Execução</h4>
+        <div class="exemplo">
+          <p>Valor informado: X = 15</p>
+          <p><strong>Resultado:</strong> R = 20</p>
+        </div>
+
+        <figure>
+          <img alt="IMAGEM">
+          <figcaption>Diagrama de blocos do Exercício 2.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ===================== EXERCÍCIO 3 ===================== -->
+      <section aria-labelledby="exercicio-3">
+        <h2 id="exercicio-3">Exercício 3 – Estrutura de Repetição (While)</h2>
+        <p>Desenvolva um algoritmo que execute uma repetição enquanto a condição i ≤ 5 for verdadeira. Durante cada repetição:</p>
+        <ul>
+          <li>Ler um valor N.</li>
+          <li>Calcular R = N × 3.</li>
+          <li>Exibir R.</li>
+          <li>Incrementar o contador.</li>
+        </ul>
+
+        <h3>Objetivo</h3>
+        <p>Compreender como um conjunto de instruções pode ser executado diversas vezes por meio de uma estrutura de repetição.</p>
+
+        <h3>Dados de Entrada</h3>
+        <p>Cinco valores informados pelo usuário.</p>
+
+        <h3>Processamento</h3>
+        <ol>
+          <li>Inicializar o contador.</li>
+          <li>Verificar a condição de repetição.</li>
+          <li>Ler um valor.</li>
+          <li>Realizar o cálculo.</li>
+          <li>Exibir o resultado.</li>
+          <li>Incrementar o contador.</li>
+          <li>Repetir o processo até o término da condição.</li>
+        </ol>
+
+        <h3>Saída</h3>
+        <p>Exibir os resultados das multiplicações realizadas.</p>
+
+        <h3>Passo a Passo da Solução</h3>
+        <div class="tabela-wrapper">
+          <table>
+            <caption>Passo a passo do Exercício 3</caption>
+            <thead><tr><th scope="col">Passo</th><th scope="col">Ação</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Passo 1</th><td>Iniciar o algoritmo.</td></tr>
+              <tr><th scope="row">Passo 2</th><td>Definir: i = 1</td></tr>
+              <tr><th scope="row">Passo 3</th><td>Verificar: i ≤ 5 ?</td></tr>
+              <tr><th scope="row">Passo 4</th><td>Ler um valor N. Exemplo: N = 4</td></tr>
+              <tr><th scope="row">Passo 5</th><td>Calcular:<br>R = N × 3<br>R = 12</td></tr>
+              <tr><th scope="row">Passo 6</th><td>Exibir R.</td></tr>
+              <tr><th scope="row">Passo 7</th><td>Incrementar o contador: i = i + 1</td></tr>
+              <tr><th scope="row">Passo 8</th><td>Retornar à condição de repetição.</td></tr>
+              <tr><th scope="row">Passo 9</th><td>Encerrar quando i for maior que 5.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Montagem do Algoritmo com as Peças Táteis</h3>
+        <h4>Peças necessárias</h4>
+        <ul>
+          <li>1 Bloco Início</li>
+          <li>2 Blocos Processamento</li>
+          <li>1 Bloco Decisão</li>
+          <li>1 Bloco Entrada</li>
+          <li>1 Bloco Saída</li>
+          <li>1 Bloco Fim</li>
+        </ul>
+        <h4>Sequência de montagem</h4>
+        <ol>
+          <li>Posicionar o bloco Início.</li>
+          <li>Conectar o bloco Processamento para inicializar o contador.</li>
+          <li>Inserir o bloco Decisão contendo a condição i ≤ 5.</li>
+          <li>No caminho verdadeiro, conectar, nesta ordem:
+            <ul>
+              <li>Bloco Entrada</li>
+              <li>Bloco Processamento para o cálculo R = N × 3</li>
+              <li>Bloco Saída</li>
+              <li>Bloco Processamento para incremento do contador</li>
+            </ul>
+          </li>
+          <li>Retornar ao bloco de decisão.</li>
+          <li>Quando a condição for falsa, seguir para o bloco Fim.</li>
+        </ol>
+
+        <h4>O que observar</h4>
+        <p>O fluxo retorna diversas vezes ao bloco de decisão, representando a repetição das instruções enquanto a condição permanecer verdadeira.</p>
+
+        <figure>
+          <img alt="IMAGEM">
+          <figcaption>Diagrama de blocos do Exercício 3.</figcaption>
+        </figure>
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer" id="rodape" tabindex="-1">
+    <div class="container">
+      <p>Projeto de Extensão – Análise e Desenvolvimento de Sistemas – IFSP Campus Campos do Jordão.</p>
+      <p>&copy; <span id="ano-atual">2026</span>. Conteúdo educacional.</p>
+    </div>
+  </footer>
+
+  <!-- VLibras (tradutor para Libras do Governo Federal). Requer conexão com a internet. -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    try { new window.VLibras.Widget("https://vlibras.gov.br/app"); } catch (e) { /* sem internet: o site continua funcionando */ }
+  </script>
+
+</body>
+</html>
